@@ -2400,7 +2400,7 @@ void ggml_cann_get_rows(ggml_backend_cann_context& ctx, ggml_tensor* dst) {
 
     switch (src0->type) {
         case GGML_TYPE_F32: {
-#ifdef ASCEND_310P
+#ifdef ASCEND_910A
             // Special operation for get_row_f32 kernel of 310P: clear the
             // content of dest data buffer when row is not aligned to 32 bytes
             if ((src0->ne[0] % 8) != 0) {
@@ -2419,7 +2419,7 @@ void ggml_cann_get_rows(ggml_backend_cann_context& ctx, ggml_tensor* dst) {
             break;
         }
         case GGML_TYPE_F16: {
-#ifdef ASCEND_310P
+#ifdef ASCEND_910A
             // Special operation for get_row_f16 kernel of 310P: clear the
             // content of dest data buffer when row is not aligned to 32 bytes
             if ((src0->ne[0] % 16) != 0) {

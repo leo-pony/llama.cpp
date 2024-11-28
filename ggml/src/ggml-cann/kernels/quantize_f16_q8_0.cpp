@@ -1,12 +1,12 @@
 #include "kernel_operator.h"
 
 using namespace AscendC;
-#ifdef ASCEND_310P
+#ifdef ASCEND_910A
     extern "C" __global__ __aicore__ void ascendc_quantize_f16_q8_0(
         GM_ADDR input_gm, GM_ADDR output_gm, GM_ADDR input_ne_gm,
         GM_ADDR input_nb_gm, GM_ADDR output_ne_gm) {
         // let following test cases can continue run, here just print error information. Of Cource the test case that call this operator is failed.
-        printf("Ascend310P not support f16->8bit quantization.\n");
+        // printf("Ascend310P not support f16->8bit quantization.\n");
     }
 #else
 
@@ -215,4 +215,4 @@ extern "C" __global__ __aicore__ void ascendc_quantize_f16_q8_0(
     op.calculate();
 }
 
-#endif // #ifdef ASCEND_310P
+#endif // #ifdef ASCEND_910A

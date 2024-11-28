@@ -75,7 +75,7 @@ class GET_ROW_F32 {
         }
 
         if(tail != 0) {
-#ifdef ASCEND_310P
+#ifdef ASCEND_910A
             for (size_t i = tail; i < elem_per_block; i++) {
                 output_local[len + i].SetValue(0, 0);
             }

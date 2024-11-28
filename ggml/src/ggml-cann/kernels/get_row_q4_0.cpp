@@ -2,13 +2,13 @@
 
 // optimize me. Use template to avoid copy code.
 using namespace AscendC;
-#ifdef ASCEND_310P // 310P not support 4bit get row
+#ifdef ASCEND_910A // 310P not support 4bit get row
     extern "C" __global__ __aicore__ void ascendc_get_row_q4_0(
         GM_ADDR input_gm, GM_ADDR indices_gm, GM_ADDR output_gm,
         GM_ADDR input_ne_gm, GM_ADDR indices_ne_gm, GM_ADDR indices_nb_gm,
         GM_ADDR output_ne_gm, GM_ADDR output_nb_gm) {
         // let following test cases can continue run, here just print error information. Of Cource the test case that call this operator is failed.
-        printf("Ascend310P not support 4bit get row.\n");
+        // printf("Ascend310P not support 4bit get row.\n");
     }
 #else
 
@@ -201,4 +201,4 @@ extern "C" __global__ __aicore__ void ascendc_get_row_q4_0(
     op.calculate();
 }
 
-#endif // #ifdef ASCEND_310P
+#endif // #ifdef ASCEND_910A

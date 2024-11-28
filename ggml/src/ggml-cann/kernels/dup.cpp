@@ -61,7 +61,7 @@ class DupByRows {
 
     __aicore__ inline void copy_out() {
         LocalTensor<DST_T> dst_local = dst_queue.DeQue<DST_T>();
-#ifdef ASCEND_310P
+#ifdef ASCEND_910A
         const size_t elem_per_block = 32 / sizeof(DST_T);
         size_t tail = num_elem % elem_per_block;
         size_t len = num_elem & ~(elem_per_block - 1);
